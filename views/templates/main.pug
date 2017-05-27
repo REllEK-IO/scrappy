@@ -1,0 +1,35 @@
+include ../mixins/navbar.pug
+
+doctype html
+html(lang="en")
+	head
+		meta(charset="utf-8")
+		meta(name="viewport", content="width=device-width, initial-scale=1.0")
+		block title
+			title Scrappy
+		-var bootstrap= "https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/flatly/bootstrap.min.css";
+		-var bootstrapScripts= "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.js";
+		-var jqueryCDN= "https://code.jquery.com/jquery.js";
+		-var jqueryuiCDN= "https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js";
+		-var pageStyle= "./assets/css/styles.css";
+		link(href=bootstrap, rel="stylesheet")
+		link(href=pageStyle, rel="stylesheet" media="screen" title="no title")
+		link(href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css", rel="stylesheet" media="screen" title="no title")
+		script(src=jqueryCDN)
+		script(src=bootstrapScripts)
+		block style
+
+	body
+		+navbar("FestiVibez", "main-nav", "dark", "#")
+			+nav_item("/index", "dark", "active", "Home")
+			+nav_item("/about", "dark", "active", "About")
+
+		block main
+			.container
+		footer
+			.container-fluid.footer
+				h4.text-center Micah T. Keller
+	script(src=jqueryuiCDN)
+
+	script(src="./assets/js/autocomplete.js")
+block scripts

@@ -1,0 +1,28 @@
+{
+  "name": "scrappy",
+  "version": "1.0.0",
+  "description": "### Overview",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mtKeller/scrappy.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mtKeller/scrappy/issues"
+  },
+  "homepage": "https://github.com/mtKeller/scrappy#readme",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "cheerio": "^0.22.0",
+    "express": "^4.15.3",
+    "mongoose": "^4.10.2",
+    "morgan": "^1.8.2",
+    "pug": "^2.0.0-rc.1",
+    "request": "^2.81.0"
+  }
+}
