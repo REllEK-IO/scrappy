@@ -47,5 +47,6 @@ db.on("error", function (error) {
 db.once("open", function () {
 	app.listen(PORT, function () {
 		console.log("App listening on PORT " + PORT);
+		require("./methods/scrape").scrape();
 	});
 });
