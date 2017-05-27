@@ -32,6 +32,24 @@ module.exports = (function () {
 
 			});
 
+			$("div.grid-tz__hgroup").each(function (i, element) {
+
+				// Save the text of the element (this) in a "title" variable
+				var title = $(this).find("h2").text()
+				title = title.replace("\n", "");
+				title = title.replace("\t", "");
+				// In the currently selected element, look at its child elements (i.e., its a-tags),
+				// then save the values for any "href" attributes that the child elements may have
+				var link = "https://www.technologyreview.com" + $(element).find("a").attr("href")
+				
+				// Save these results in an object that we'll push into the result array we defined earlier
+				result.push({
+					title: title,
+					link: link
+				});
+
+			});
+
 			// Log the result once cheerio analyzes each of its selected elements
 			console.log(result);
 		});
