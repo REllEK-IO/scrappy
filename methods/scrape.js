@@ -3,7 +3,7 @@ var cheerio = require("cheerio");
 
 module.exports = (function () {
 
-	var scrape = function () {
+	var scrape = function (cb) {
 		request("https://www.technologyreview.com/", function (error, response, html) {
 
 			// Load the HTML into cheerio and save it to a variable
@@ -52,6 +52,7 @@ module.exports = (function () {
 
 			// Log the result once cheerio analyzes each of its selected elements
 			console.log(result);
+			cb(result)
 		});
 
 	}

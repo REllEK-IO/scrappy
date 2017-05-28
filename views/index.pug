@@ -2,4 +2,16 @@ extends ./templates/main
 include ./mixins/navbar
 
 block main
-	h1.text-center Hello World
+	h1.text-center.text-primary scrappy
+	br
+	.row
+		.offset-lg-2.col-lg-8
+			table.table.table-inverse
+				thread
+					tr
+						th Result
+				tbody
+					each val in data
+						tr
+							th(scope="row")
+								a(href=val.link) !{val.title}
