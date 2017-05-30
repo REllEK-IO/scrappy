@@ -14,14 +14,29 @@ $(document).ready(function () {
 				url: "../api/comment",
 				data: data
 			});
-			setTimeout(function(){
+			setTimeout(function () {
 				location.reload();
 			}, 1000)
-		}
-		else{
+		} else {
 			$("#text").effect("shake");
 			$("#text").addClass("has-danger");
 			$("#short").removeClass("hidden");
 		}
 	})
-})
+	$(".delete").click(function () {
+		var date = $(this).attr("val");
+		console.log(date);
+		var data = {
+			date: date
+		};
+		$(this).off();
+		$.ajax({
+			type: "DELETE",
+			url: "../comment",
+			data: data
+		});
+		setTimeout(function () {
+			location.reload();
+		}, 1000)
+	});
+});

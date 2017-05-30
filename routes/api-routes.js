@@ -22,4 +22,15 @@ module.exports = function (app) {
 			}
 		})
   });
+
+	app.delete("/comment", function(req, res){
+		console.log("******************************** Deleting" + req.body.date);
+		console.log("************" + Object.keys(req.body));
+
+		var date = req.body.date;
+		
+		articleComment.find({
+			date : date
+		}).remove().exec();
+	})
 };

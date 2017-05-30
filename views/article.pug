@@ -35,7 +35,10 @@ block main
 				each val in comments
 						div.block-color
 							p !{val.text_body}
+							button.delete.btn.btn-warning.btn-sm.float-right(val=val.date)
+								i.fa.fa-times(aria-hidden="true")
 							span.float-right !{val.date}
+							
 						br
 						br
 block scripts
