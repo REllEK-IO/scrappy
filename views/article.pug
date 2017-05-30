@@ -2,12 +2,13 @@ extends ./templates/embedMain
 include ./mixins/navbar
 
 block main
+	br
 	h1.text-center.text-primary Article Page
 	br
 	.row
 		.offset-lg-2.col-lg-8.jumbotron
 			.offset-lg-2.col-lg-8
-				h2.text-center.text-primary !{data.title}
+				h2#article.text-center.text-primary !{data.title}
 				a.text-info.float-right(href=data.link)
 					i.fa.fa-external-link(aria-hidden="true")
 			br
@@ -18,11 +19,24 @@ block main
 					p !{val}
 			br
 			br
+			br
 			.offset-lg-2.col-lg-8
 				h3.text-center Leave a comment
-				textarea.form-control
+				textarea#text.form-control
 				br
-				button.btn.btn-primary.float-right Submit
-			
-
-
+				button#submit.btn.btn-primary.float-right Submit
+				span#short.text-danger.hidden Minimum of 25 characters needed!
+			br
+			br
+			br
+			.offset-lg-2.col-lg-8
+				h4.text-center Comments
+				br
+				each val in comments
+						div.block-color
+							p !{val.text_body}
+							span.float-right !{val.date}
+						br
+						br
+block scripts
+	script(src="../assets/js/scripts.js")

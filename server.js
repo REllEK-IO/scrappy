@@ -33,6 +33,7 @@ app.use(express.static("./public"));
 //HTML
 //API
 require("./routes/html-routes.js")(app);
+require("./routes/api-routes.js")(app);
 
 ////Init mongoose
 //
