@@ -37,7 +37,7 @@ require("./routes/api-routes.js")(app);
 
 ////Init mongoose
 //
-mongoose.connect("mongodb://localhost/scrappy");
+mongoose.connect("mongodb://mtkeller:mew123@ds115071.mlab.com:15071/heroku_ms24s8jg");
 var db = mongoose.connection;
 db.on("error", function (error) {
 	console.log("Mongoose Error: ", error);
