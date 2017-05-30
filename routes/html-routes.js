@@ -20,25 +20,29 @@ module.exports = function (app) {
       })
     });
   });
+
   app.get("/article/:title", function (req, res) {
     var target = req.params.title;
     console.log("Article: " + target + " is loading...");
+
     Article.find({
       title: target
     }, function (err, art) {
       if (err) throw err;
       else {
-        for (var k in art) {
-          console.log(art[k]);
-        }
-        var articleLink = art;
+        var articleLink = art[0].link;
         // console.dir(articleLink);
-        scrapeSum(articleLink, function (summary) {
-          res.render("article", {
-            data: art,
-            summary: summary
-          });
-        })
+        if (articleLink === undefined) {
+          res.redirect("/");
+        } else {
+          scrapeSum(articleLink, function (summary) {
+            console.log(summary.length);
+            res.render("article", {
+              data: art[0],
+              summary: summary
+            });
+          })
+        }
       }
 
     });

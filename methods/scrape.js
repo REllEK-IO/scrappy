@@ -51,7 +51,7 @@ module.exports = (function () {
 			});
 
 			// Log the result once cheerio analyzes each of its selected elements
-			console.log(result);
+			// console.log(result);
 			cb(result)
 		});
 
@@ -69,16 +69,13 @@ module.exports = (function () {
 
 			// With cheerio, find each p-tag with the "title" class
 			// (i: iterator. element: the current element)
-			$("article-body__content").find("p").each(function (i, element) {
+			$(".article-body__content p").each(function (i, element) {
 
 				// Save the text of the element (this) in a "title" variable
 				var content = $(this).text()
 
 				// Save these results in an object that we'll push into the result array we defined earlier
-				result.push({
-					content : content
-				});
-
+				result.push(content);
 			});
 
 			cb(result);

@@ -1,4 +1,4 @@
-extends ./templates/main
+extends ./templates/embedMain
 include ./mixins/navbar
 
 block main
@@ -6,7 +6,23 @@ block main
 	br
 	.row
 		.offset-lg-2.col-lg-8.jumbotron
-			h2.text-center.text-primary !{data.title}
-			a.text-center.text-info(href=data.link) link
+			.offset-lg-2.col-lg-8
+				h2.text-center.text-primary !{data.title}
+				a.text-info.float-right(href=data.link)
+					i.fa.fa-external-link(aria-hidden="true")
+			br
+			br
+			br
+			.offset-lg-1.col-lg-10
+				each val in summary
+					p !{val}
+			br
+			br
+			.offset-lg-2.col-lg-8
+				h3.text-center Leave a comment
+				textarea.form-control
+				br
+				button.btn.btn-primary.float-right Submit
+			
 
 

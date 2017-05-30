@@ -5,3 +5,34 @@ body {
 h1,h2,h3{
 	font-family: 'Gloria Hallelujah', cursive;
 }
+
+.fa-external-link{
+	font-size: xx-large !important;
+	color: black;
+}
+
+.fa-external-link:hover{
+	color: paleturquoise;
+	text-shadow: 0 0 20px lightcoral;
+}
+
+.form-control{
+	min-height: 200px;
+	background-color: grey;
+	color: white;
+}
+
+.form-control:focus{
+	transition: 2s;
+	background-color: black;
+	color: white;
+}
+
+.call-card{
+	transition: 1s;
+}
+
+.call-card:hover{
+	transition: 1s;
+	color:white;
+}
