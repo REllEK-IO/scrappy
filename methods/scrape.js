@@ -57,7 +57,37 @@ module.exports = (function () {
 
 	}
 
+	var scrapeSummary = function (target, cb) {
+		request(target, function (error, response, html) {
+			console.log("Scrapping Summary from" + target);
+			// Load the HTML into cheerio and save it to a variable
+			// '$' becomes a shorthand for cheerio's selector commands, much like jQuery's '$'
+			var $ = cheerio.load(html);
+
+			// An empty array to save the data that we'll scrape
+			var result = [];
+
+			// With cheerio, find each p-tag with the "title" class
+			// (i: iterator. element: the current element)
+			$("article-body__content").find("p").each(function (i, element) {
+
+				// Save the text of the element (this) in a "title" variable
+				var content = $(this).text()
+
+				// Save these results in an object that we'll push into the result array we defined earlier
+				result.push({
+					content : content
+				});
+
+			});
+
+			cb(result);
+		});
+
+	}
+
 	return {
-		scrape : scrape
+		scrape : scrape,
+		scrapeSum : scrapeSummary
 	}
 })();

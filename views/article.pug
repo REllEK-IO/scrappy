@@ -1,0 +1,12 @@
+extends ./templates/main
+include ./mixins/navbar
+
+block main
+	h1.text-center.text-primary Article Page
+	br
+	.row
+		.offset-lg-2.col-lg-8.jumbotron
+			h2.text-center.text-primary !{data.title}
+			a.text-center.text-info(href=data.link) link
+
+

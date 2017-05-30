@@ -1,0 +1,34 @@
+include ../mixins/navbar.pug
+
+doctype html
+html(lang="en")
+	head
+		meta(charset="utf-8")
+		meta(name="viewport", content="width=device-width, initial-scale=1.0")
+		block title
+			title Scrappy
+		-var bootstrap= "https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css";
+		-var bootstrapScripts= "https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/js/bootstrap.min.js";
+		-var jqueryCDN= "https://code.jquery.com/jquery.js";
+		-var jqueryuiCDN= "https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js";
+		-var pageStyle= "../assets/css/styles.css";
+		link(href=bootstrap, rel="stylesheet")
+		link(href=pageStyle, rel="stylesheet" media="screen" title="no title")
+		link(href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah", rel="stylesheet")
+		link(href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css", rel="stylesheet" media="screen" title="no title")
+		script(src=jqueryCDN)
+		script(src=bootstrapScripts)
+		block style
+
+	body
+		+navbar-fixed("scappy", "main-nav", "dark", "#")
+			+nav_item("/index", "dark", "active", "Home")
+			+nav_item("/about", "dark", "active", "About")
+
+		block main
+			.container
+		footer
+			.container-fluid.footer
+				h4.text-center Micah T. Keller
+	script(src=jqueryuiCDN)
+block scripts
